@@ -14,9 +14,9 @@ public class RestauranteFacade {
     Caja SeccionCaja;
     Cocina SeccionCocina;
 
-    public RestauranteFacade() {
+    public RestauranteFacade(String region) {
         this.SeccionCaja = new Caja();
-        this.SeccionCocina = new Cocina();
+        this.SeccionCocina = new Cocina(region);
 
     }
 

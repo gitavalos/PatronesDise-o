@@ -16,14 +16,16 @@ public class Cocina {
 
     Hamburguesa hamburguesa;
     Restaurante restaurante;
-
+    String region;
+    
     Persona[] personas;
     ArrayList<Pedido> pedidos;
     ArrayList<Pedido> entregados;
 
-    public Cocina() {
+    public Cocina(String region) {
         pedidos = new ArrayList<>();
         entregados = new ArrayList<>();
+        this.region = region;
     }
 
     public void agregarPedido(Pedido pedido) {
@@ -34,7 +36,14 @@ public class Cocina {
 
     //***********PREPARAR PEDIDO*******//
     public Hamburguesa Cocinar() {
-        restaurante = new RestauranteGuatemala();
+        switch(region){
+            case ("Guatemala"):
+                restaurante = new RestauranteGuatemala();
+                break;
+            case ("EEUU"):
+                restaurante = new RestauranteEstadosUnidos();
+                break;
+        }        
         Pedido pedido = pedidos.get(0);
         int numMenu = pedido.getEspecificacion();
         switch (numMenu) {

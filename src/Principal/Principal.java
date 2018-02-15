@@ -16,14 +16,12 @@ public class Principal {
      */
     public static void main(String[] args) {
        
-        
+        String region = "Guatemala";
         Persona cliente1 = new Persona("201122826", "Ivan", "Lopez");
-        Persona cliente2 = new Persona("201114339", "Antonio", "Avalos");
-        
-        RestauranteFacade restaurante = new RestauranteFacade();
-        
+        Persona cliente2 = new Persona("201114339", "Antonio", "Avalos");           
         
         System.out.println("............................con facade............................");
+        RestauranteFacade restaurante = new RestauranteFacade(region);
         //pedido con patron de diseño facade
         restaurante.ingresoRestaurante(cliente1);
         Pedido p = restaurante.pedido(cliente1, 1);
@@ -34,7 +32,7 @@ public class Principal {
         System.out.println("............................sin facade............................");
         restaurante.ingresoRestaurante(cliente2);
         Caja SeccionCaja = new Caja();
-        Cocina SeccionCocina = new Cocina();
+        Cocina SeccionCocina = new Cocina(region);
         SeccionCaja.atenderCliente(cliente2);
         SeccionCaja.pedirMenu(2);
         SeccionCaja.cobrando(35);
