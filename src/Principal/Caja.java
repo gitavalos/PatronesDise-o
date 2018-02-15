@@ -5,6 +5,9 @@
  */
 package Principal;
 
+import java.util.Random;
+
+
 /**
  *
  * @author ivanl
@@ -22,7 +25,11 @@ public class Caja {
     }
     
     public void cobrando(int monton){
-        System.out.println("cobrando " + monton + " quetzales.....");
+        if(new Random().nextBoolean()){
+            new CobroEfectivo().cobrar(monton);
+        }else{
+            new CobroTarjeta().cobrar(monton);
+        }
     }
     
     
