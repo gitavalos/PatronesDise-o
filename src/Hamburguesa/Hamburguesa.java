@@ -12,15 +12,18 @@ import java.util.ArrayList;
  * @author Avalo
  */
 public abstract class Hamburguesa {
+
+    String Descripcion = "Desconocida";
     String Region;
     String Nombre;
     String Pan;
     String Salsa;
     String Carne;
     ArrayList Extras = new ArrayList();
-    
-    void Preparar_Orden(){
-        System.out.println("Region -> "+ Region);
+
+    void Preparar_Orden() {
+        Descripcion = Nombre;
+        System.out.println("Region -> " + Region);
         System.out.println("Orden -> " + Nombre);
         System.out.println("Se cocina la carne " + Carne);
         System.out.println("Se toma el pan " + Pan);
@@ -31,4 +34,8 @@ public abstract class Hamburguesa {
         }
     }
     
+    public String ObtenerDescripcion(){
+        return Descripcion;
+    }
+
 }

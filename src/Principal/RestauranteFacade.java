@@ -33,12 +33,14 @@ public class RestauranteFacade {
         SeccionCaja.pedirMenu(menu);
         SeccionCaja.cobrando(35);
         Pedido p = new Pedido(SeccionCocina.numeroPedidos(), persona.nombres, menu);
-        SeccionCocina.agregarPedido(p);
+        
         return p;
     }
-
-    public void entregaPedido(Pedido p) {
+    
+    public Pedido Aceptar(Pedido p){
+        SeccionCocina.agregarPedido(p);
         SeccionCocina.entregaPedido(p);
+        return p;
     }
 
 }

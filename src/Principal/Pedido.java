@@ -5,6 +5,8 @@
  */
 package Principal;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ivanl
@@ -14,11 +16,16 @@ public class Pedido {
     int numero;
     String NombreCliente;
     int numeroMenu;
+    ArrayList extra = new ArrayList();
 
     public Pedido(int numero, String NombreCliente, int especificacion) {
         this.numero = numero;
         this.NombreCliente = NombreCliente;
         this.numeroMenu = especificacion;
+    }
+    
+    public void AgregarExtra(String elemento){
+        extra.add(elemento);
     }
 
     public int getEspecificacion() {

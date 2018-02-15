@@ -11,13 +11,13 @@ package Hamburguesa;
  */
 public abstract class Restaurante {
     public Hamburguesa OrdenarHamburguesa(String Tipo){
-        System.out.println("//-------------------COMIENZA PREPARACION----------------------------//");
+        
         Hamburguesa hamburguesa;
         hamburguesa = CrearHamburguesa(Tipo);
         if(hamburguesa!=null){
             hamburguesa.Preparar_Orden();
         }        
-        System.out.println("//-------------------------TERMINA PREPARACION-----------------------//");
+
         return hamburguesa;
     }
     

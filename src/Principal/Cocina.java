@@ -17,7 +17,7 @@ public class Cocina {
     Hamburguesa hamburguesa;
     Restaurante restaurante;
     String region;
-    
+
     Persona[] personas;
     ArrayList<Pedido> pedidos;
     ArrayList<Pedido> entregados;
@@ -36,15 +36,16 @@ public class Cocina {
 
     //***********PREPARAR PEDIDO*******//
     public Hamburguesa Cocinar() {
-        switch(region){
+        switch (region) {
             case ("Guatemala"):
                 restaurante = new RestauranteGuatemala();
                 break;
             case ("EEUU"):
                 restaurante = new RestauranteEstadosUnidos();
                 break;
-        }        
+        }
         Pedido pedido = pedidos.get(0);
+        System.out.println("//-------------------COMIENZA PREPARACION----------------------------//");
         int numMenu = pedido.getEspecificacion();
         switch (numMenu) {
             case (1):
@@ -57,7 +58,19 @@ public class Cocina {
                 hamburguesa = restaurante.OrdenarHamburguesa("FiletePez");
                 break;
         }
-
+        for (int i = 0; i < pedido.extra.size(); i++) {
+            String extra = pedido.extra.get(i).toString();
+            switch (extra) {
+                case ("Extra Queso"):
+                    hamburguesa = new ExtraQueso(hamburguesa);
+                    break;
+                case ("Extra Tocino"):
+                    hamburguesa = new ExtraTocino(hamburguesa);
+                    break;
+            }
+        }
+        System.out.println("//-------------------------TERMINA PREPARACION-----------------------//");
+        System.out.println(hamburguesa.ObtenerDescripcion());
         return hamburguesa;
     }
 

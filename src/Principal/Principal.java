@@ -20,12 +20,17 @@ public class Principal {
         Persona cliente1 = new Persona("201122826", "Ivan", "Lopez");
         Persona cliente2 = new Persona("201114339", "Antonio", "Avalos");           
         
+        
         System.out.println("............................con facade............................");
         RestauranteFacade restaurante = new RestauranteFacade(region);
         //pedido con patron de diseño facade
         restaurante.ingresoRestaurante(cliente1);
         Pedido p = restaurante.pedido(cliente1, 1);
-        restaurante.entregaPedido(p);
+        p.AgregarExtra("Extra Queso");
+        p.AgregarExtra("Extra Queso");
+        p.AgregarExtra("Extra Queso");
+        p.AgregarExtra("Extra Queso");
+        restaurante.Aceptar(p);
         
         //pedido sin patron de diseño facade
         
@@ -37,6 +42,7 @@ public class Principal {
         SeccionCaja.pedirMenu(2);
         SeccionCaja.cobrando(35);
         Pedido p1 = new Pedido(SeccionCocina.numeroPedidos(),cliente2.nombres,2);
+        p1.AgregarExtra("Extra Tocino");
         SeccionCocina.agregarPedido(p1);
         SeccionCocina.entregaPedido(p1);
     }
