@@ -10,6 +10,7 @@ package Hamburguesa;
  * @author Avalo
  */
 public abstract class Restaurante {
+    String reg;
     public Hamburguesa OrdenarHamburguesa(String Tipo){
         
         Hamburguesa hamburguesa;

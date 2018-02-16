@@ -10,10 +10,10 @@ package Hamburguesa;
  * @author Avalo
  */
 public class RestauranteGuatemala extends Restaurante {
-    String reg = "Guatemala";
-    
+
     @Override
     protected Hamburguesa CrearHamburguesa(String Pedido) {
+        reg = "Guatemala";
         if (Pedido.equals("Angus")) {
             Hamburguesa angus = new Angus();
             angus.Region = reg;
@@ -26,7 +26,7 @@ public class RestauranteGuatemala extends Restaurante {
             cuarto.Region = reg;
             return cuarto;
         }
-        System.out.println("Lo Sentimos nostros no servimos " + Pedido + " en region "+reg);
+        System.out.println("Lo Sentimos nostros no servimos " + Pedido + " en region " + reg);
         return null;
     }
 
